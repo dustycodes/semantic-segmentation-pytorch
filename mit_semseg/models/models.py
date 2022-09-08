@@ -99,7 +99,7 @@ class ModelBuilder:
         elif arch == 'hrnetv2':
             net_encoder = hrnet.__dict__['hrnetv2'](pretrained=pretrained)
         else:
-            raise Exception('Architecture undefined!')
+            raise Exception(f'Architecture {arch} undefined!')
 
         # encoders are usually pretrained
         # net_encoder.apply(ModelBuilder.weights_init)
@@ -147,7 +147,7 @@ class ModelBuilder:
                 use_softmax=use_softmax,
                 fpn_dim=512)
         else:
-            raise Exception('Architecture undefined!')
+            raise Exception(f'Architecture {arch} undefined!')
 
         net_decoder.apply(ModelBuilder.weights_init)
         if len(weights) > 0:
